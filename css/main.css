@@ -28,32 +28,70 @@
   background-color: #E2DCF1;
 }
 
-header {
+.header-wrapper{
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
 }
 
-header h1,
-header div,
-header nav {
+.header-wrapper h1,
+.header-wrapper div,
+.header-wrapper nav {
   flex-basis: 33.333%;
+}
+
+header {
+  position: relative;
+
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+
 }
 
 h1 {
   text-align: center;
+  color: #273D56;
+
 }
 
 nav {
   text-align: right;
+  text-decoration: none;
+
 }
 
-a{
+nav a {
+  text-decoration: none;
+  color: grey;
+
+}
+
+.full-menu {
+  list-style:none;
+  margin-right: 40px;
+  white-space: nowrap;
+
+}
+
+.full-menu li {
+  display: inline-block;
+  margin-left: 40px;
+}
+.full-menu li:first-child {
+  margin-left: 0;
+}
+
+/*a{
   padding-right: 50px;
   text-decoration: none;
   color: grey;
-}
+}*/
 
 a:hover {
   color: black;
@@ -71,12 +109,15 @@ img {
 h2 {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
+  color: #273D56;
 }
 
 h3 {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
+  color: #273D56;
+
 }
 
 hr {
@@ -92,13 +133,14 @@ hr {
 }
 
 .about img {
-  width: 50%;
+  width: 2000px;
   margin-bottom: auto;
-  padding: 0px 30px 0px 30px;
+  margin-left: 200px;
+  /*padding: 0px 30px 0px 30px;*/
 }
 
 p {
-  padding: 0px 30px 0px 30px;
+  padding: 0px 250px 0px 100px;
 }
 
 
@@ -118,6 +160,10 @@ footer input {
 footer .info {
 	padding: 30px 15px;
   text-align: center;
+}
+
+footer p {
+  padding: 0;
 }
 
 .social-links a {
@@ -178,32 +224,11 @@ input {
    font-weight: 600;
 }
 
-.slick-dots {
-  display: block;
-
-
-}
-.slick-dots li button {
-    position: relative;
-    color: transparent;
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-    border: 0;
-    text-align: center;
-    padding: 0;
-    bottom: 0;
-    transition: bottom 0.2s ease;
-    margin: 0 5px;
-}
-
-button {
-
-}
-
 img {
 	margin: 0 auto;
-	max-width: 800px;
+	width: 700px;
+  height: 500px;
+  overflow: auto;
 	display: none;
 }
 
@@ -234,16 +259,130 @@ img:first-of-type {
     cursor: url('../img/next.svg'), auto;
 }
 
-.controls a {
-  display: none;
+.pagination-dots a {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-top: 20px;
+  padding: 20px;
+
 }
+
+.pagination-dot {
+  background-image:url('../img/dot-empty.svg');
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-size: 10px 10px;
+  background-position: 50% 50%;
+}
+
+.pagination-dot.active{
+  background-image:url('../img/dot-fill.svg');
+
+}
+
+/*.controls img {
+  display: inline-block;
+  width: 10px;
+  padding-top: 20px;
+  text-align: center;
+  }*/
+
+
+/*.slick-dots {
+  display: inline-block;
+
+
+}
+.slick-dots li button {
+    position: relative;
+    color: transparent;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 0;
+    text-align: center;
+    padding: 0;
+    bottom: 0;
+    transition: bottom 0.2s ease;
+    margin: 0 5px;
+}*/
 
 @media only screen and (max-width: 900px) {
   .click-zone-right,
   .click-zone-left {
     display: none;
   }
-  .controls a {
+  /*.controls a {
     display: inline-block;
+  }*/
+}
+
+@media only screen and (min-width: 480px) {
+  .menu {
+    display:none;
   }
 }
+
+@media only screen and (max-width: 480px) {
+
+  .full-menu {
+    display: none;
+  }
+
+  .hamburger {
+    cursor: pointer;
+    padding: 15px
+    display: block;
+    position: absolute;
+    right: 10px;
+  }
+
+  .line {
+    border-bottom: 4px solid #bbb;
+    width: 35px;
+    margin-bottom: 6px;
+  }
+
+  .line:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Our styles here*/
+  nav li {
+    width: 100%;
+  }
+
+.clearfix .menu .open {
+  text-decoration: none;
+}
+
+
+
+  .menu {
+    height: 0;
+    overflow: auto;
+    transition: height 0.3s;
+    z-index: 100;
+    margin-top: 0;
+    width: 100%;
+
+  }
+
+  .open {
+    height: 295px;
+  }
+
+  li a {
+    display: block;
+    text-decoration: none;
+    color: #273D56;
+    text-align: center;
+    list-style: none;
+    margin-top: 50px;
+  }
+
+  ul {
+    list-style: none;
+
+  }
